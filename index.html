@@ -62,25 +62,23 @@
     <button onclick="playSound('foca')">🦭 Foca</button>
   </div>
 
-  <!-- Áudios -->
-  <audio id="baleia" src="sons/baleia.mp3"></audio>
-  <audio id="golfinho" src="sons/golfinho.mp3"></audio>
-  <audio id="onda" src="sons/onda.mp3"></audio>
-  <audio id="pinguim" src="sons/pinguim.mp3"></audio>
-  <audio id="foca" src="sons/foca.mp3"></audio>
+  <!-- Áudios no mesmo diretório do HTML -->
+  <audio id="baleia" src="baleia.mp3"></audio>
+  <audio id="golfinho" src="golfinho.mp3"></audio>
+  <audio id="onda" src="onda.mp3"></audio>
+  <audio id="pinguim" src="pinguim.mp3"></audio>
+  <audio id="foca" src="foca.mp3"></audio>
 
   <script>
     const sounds = ['baleia', 'golfinho', 'onda', 'pinguim', 'foca'];
 
     function playSound(id) {
-      // Parar todos os sons
       sounds.forEach(soundId => {
         const audio = document.getElementById(soundId);
         audio.pause();
         audio.currentTime = 0;
       });
 
-      // Tocar o som escolhido
       const selectedAudio = document.getElementById(id);
       selectedAudio.play();
     }

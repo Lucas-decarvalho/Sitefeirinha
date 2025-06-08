@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feira Marinha - Sons do Oceano</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #a0e7e5, #b4f8c8);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #036;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 20px 30px;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      transition: transform 0.1s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌊 Sons do Oceano 🌊</h1>
+  <p>Clique nos botões para ouvir os sons dos animais marinhos!</p>
+
+  <div class="button-container">
+    <button onclick="playSound('baleia')">🐋 Baleia</button>
+    <button onclick="playSound('golfinho')">🐬 Golfinho</button>
+    <button onclick="playSound('onda')">🌊 Onda</button>
+    <button onclick="playSound('pinguim')">🐧 Pinguim</button>
+    <button onclick="playSound('foca')">🦭 Foca</button>
+  </div>
+
+  <!-- Áudios -->
+  <audio id="baleia" src="sons/baleia.mp3"></audio>
+  <audio id="golfinho" src="sons/golfinho.mp3"></audio>
+  <audio id="onda" src="sons/onda.mp3"></audio>
+  <audio id="pinguim" src="sons/pinguim.mp3"></audio>
+  <audio id="foca" src="sons/foca.mp3"></audio>
+
+  <script>
+    const sounds = ['baleia', 'golfinho', 'onda', 'pinguim', 'foca'];
+
+    function playSound(id) {
+      // Parar todos os sons
+      sounds.forEach(soundId => {
+        const audio = document.getElementById(soundId);
+        audio.pause();
+        audio.currentTime = 0;
+      });
+
+      // Tocar o som escolhido
+      const selectedAudio = document.getElementById(id);
+      selectedAudio.play();
+    }
+  </script>
+
+</body>
+</html>
